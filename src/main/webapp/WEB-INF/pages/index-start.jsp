@@ -9,7 +9,7 @@
 <h2>All Users</h2>
     <table width="40%">
     <tr align="center">
-        <th>ID</th>
+<%--        <th>ID</th>--%>
         <th>NAME</th>
         <th>LAST NAME</th>
         <th>AGE</th>
@@ -24,7 +24,7 @@
             <c:param name="userId" value="${user.id}"/>
         </c:url>
         <tr align="center">
-                <td>${user.id}</td>
+<%--                <td>${user.id}</td>--%>
                 <td>${user.name}</td>
                 <td>${user.lastName}</td>
                 <td>${user.age}</td>
