@@ -23,10 +23,6 @@
             <td>Age</td>
             <td><form:input path="age"/></td>
         </tr>
-        <tr>
-            <td>Birthday</td>
-            <td><form:input path="birthDay"/></td>
-        </tr>
     </table>
     <input type="submit" value="Ok">
 </form:form>

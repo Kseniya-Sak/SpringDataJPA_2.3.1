@@ -20,17 +20,13 @@ public class User {
     @Column
     private int age;
 
-    @Column(name = "birth_day")
-    private Date birthDay;
-
     public User() {
     }
 
-    public User(String name, String lastName, int age, Date birthDay) {
+    public User(String name, String lastName, int age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.birthDay = birthDay;
     }
 
     public int getId() {
@@ -65,14 +61,6 @@ public class User {
         this.age = age;
     }
 
-    public Date getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,17 +69,15 @@ public class User {
         User user = (User) o;
 
         if (age != user.age) return false;
-        if (!name.equals(user.name)) return false;
-        if (!lastName.equals(user.lastName)) return false;
-        return birthDay.equals(user.birthDay);
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        return lastName != null ? lastName.equals(user.lastName) : user.lastName == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + lastName.hashCode();
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + age;
-        result = 31 * result + birthDay.hashCode();
         return result;
     }
 
@@ -102,7 +88,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", birthDay=" + birthDay +
                 '}';
     }
 }
